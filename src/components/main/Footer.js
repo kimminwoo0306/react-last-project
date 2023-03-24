@@ -1,7 +1,50 @@
 import {useState,useEffect,Fragment} from "react";
 import Header from "./Header";
+import axios from "axios";
 
 function Footer() {
+    const[newsList,setNewsList]=useState([])
+    const[title,setTitle]=useState('제주도')
+    const[recipeList,setRecipeList]=useState([])
+    const[locationList,setLocationList]=useState([])
+
+    useEffect(()=>{
+        axios.get("http://localhost/news/news_aop_react", {
+            params:{
+                title:title
+            }
+        }).then(response=>{
+            console.log(response.data)
+            setNewsList(response.data)
+        })
+    },[])
+    useEffect(()=>{
+        axios.get("http://localhost/jeju/recipe_top9_react").then(response=> {
+            console.log(response.data)
+            setRecipeList(response.data)
+        })
+    },[])
+    useEffect(()=>{
+        axios.get("http://localhost/jeju/location_top9_react").then(response=> {
+            console.log(response.data)
+            setLocationList(response.data)
+        })
+    },[])
+    let html=newsList.map((news)=>
+        <li><a href={news.link} target={"_blank"} dangerouslySetInnerHTML={{__html:news.title}}></a></li>
+    )
+    let recipe=recipeList.map((recipe)=>
+        <li>
+            <a href={"https://www.10000recipe.com/"+recipe.link} target={"_blank"}><img src={recipe.poster} alt=""/>
+            <span>{recipe.chef}</span></a>
+        </li>
+    )
+    let location=locationList.map((location)=>
+        <li>
+            <a href={location.url} target={"_blank"}><img src={location.poster}/>
+            <span>{location.title}</span></a>
+        </li>
+    )
     return (
         <Fragment>
         <div className="bgded overlay row4" style={{"background-image":"url('images/demo/backgrounds/01.png')"}}>
@@ -9,39 +52,19 @@ function Footer() {
                 <div className="one_third first">
                     <h6 className="heading">오늘의 뉴스</h6>
                     <ul className="nospace linklist">
-                        <li><a href="#">Sagittis leo morbi quis</a></li>
-                        <li><a href="#">Nulla vehicula felis laoreet</a></li>
-                        <li><a href="#">Pulvinar proin et eros ac</a></li>
-                        <li><a href="#">Mi vulputate accumsan fusce</a></li>
-                        <li><a href="#">At massa in sed tortor sit amet</a></li>
+                        {html}
                     </ul>
                 </div>
                 <div className="one_third">
-                    <h6 className="heading">오늘의 제주 맛집 Top9</h6>
+                    <h6 className="heading"> 제주 명소 Top 9</h6>
                     <ul className="nospace clear latestimg">
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
+                        {location}
                     </ul>
                 </div>
                 <div className="one_third">
                     <h6 className="heading">오늘의 레시피 Top 9</h6>
                     <ul className="nospace clear latestimg">
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
-                        <li><a className="imgover" href="#"><img src="images/demo/100x100.png" alt=""/></a></li>
+                        {recipe}
                     </ul>
                 </div>
             </footer>
@@ -49,7 +72,7 @@ function Footer() {
             <div className="wrapper row5">
                 <div id="copyright" className="hoc clear">
                     <p className="fl_left">Copyright &copy; 2023-03-23 - 강남 쌍용 교육센터 - <a href="#">김민우</a></p>
-                    <p className="fl_right">Template by <a href="https://github.com/kimminwoo0306/">Git Address</a></p>
+                    <p className="fl_right">git Address : <a href="https://github.com/kimminwoo0306/" target={"_blank"}>https://github.com/kimminwoo0306</a></p>
                 </div>
             </div>
         </Fragment>

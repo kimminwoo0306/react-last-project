@@ -26,7 +26,7 @@ function Header(props){
         <div className="wrapper row1">
             <header id="header" className="hoc clear">
                 <div id="logo" className="fl_left">
-                    <h1 className="logoname"><NavLink to={"/"}><span>제주맛집/</span>서울여행</NavLink></h1>
+                    <h1 className="logoname"><NavLink to={"/"}><span>탐나라제주</span></NavLink></h1>
                 </div>
                 <nav id="mainav" className="fl_right">
                     <ul className="clear">
@@ -37,21 +37,13 @@ function Header(props){
                                 <li><NavLink to={"/jeju/event_list"}>행사&이벤트</NavLink></li>
                             </ul>
                         </li>
-                        <li><a className="drop" href="#">서울여행</a>
-                            <ul>
-                                <li><a href="pages/gallery.html">명소</a></li>
-                                <li><a href="pages/full-width.html">자연/관광</a></li>
-                                <li><a href="pages/full-width.html">쇼핑</a></li>
-                            </ul>
-                        </li>
                         <li><a className="drop" href="#">레시피</a>
                             <ul>
                                 <li><a href="/jeju/recipe_list">레시피</a></li>
-                                <li><a href="pages/full-width.html">셰프</a></li>
                             </ul>
                         </li>
                         <li><NavLink to={"/jeju/food_find"}>맛집 검색</NavLink></li>
-                        <li><NavLink to={"/jeju/news_find"}>뉴스 검색</NavLink></li>
+                        <li><NavLink to={"/news/news_list"}>뉴스 검색</NavLink></li>
                     </ul>
                 </nav>
             </header>

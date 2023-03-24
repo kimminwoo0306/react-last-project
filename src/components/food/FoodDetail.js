@@ -16,6 +16,7 @@ function FoodDetail(props){
             setFoodDetail(response.data)
         })
     }, {})
+    document.cookie="jeju"+parseInt(no)+"="+foodDetail.poster;
     useEffect(()=>{
         const script=document.createElement("script")
         script.async=true

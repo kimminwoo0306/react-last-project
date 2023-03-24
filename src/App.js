@@ -8,6 +8,7 @@ import EventList from "./components/food/EventList";
 import Recipe from "./components/recipe/Recipe";
 import FoodDetail from "./components/food/FoodDetail";
 import FoodFind from "./components/food/FoodFind";
+import NewsList from "./components/news/NewsList";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path={"/jeju/recipe_list"} element={<Recipe/>}/>
             <Route exact path={"/jeju/food_detail/:no"} element={<FoodDetail/>}/>
             <Route exact path={"/jeju/food_find"} element={<FoodFind/>}/>
+            <Route exact path={"/news/news_list"} element={<NewsList/>}/>
           </Routes>
         <Footer/>
       </Fragment>

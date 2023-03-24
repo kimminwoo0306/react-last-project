@@ -1,6 +1,7 @@
 import {useState, useEffect, Fragment} from "react";
 import Header from "./Header";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
 
 function Home (){
     const [foodTop,setFoodTop]=useState([])
@@ -13,7 +14,7 @@ function Home (){
     }, [])
     let html=foodTop.map((food)=>
         <li className="one_third">
-            <article><a href="#"><img src={food.poster} style={{"width":"100%"}}/></a>
+            <article><NavLink to={"/jeju/food_detail/"+food.no}><img src={food.poster} style={{"width":"100%"}}/></NavLink>
                 <h6 className="heading">{food.title}</h6>
                 <p>{food.addr}</p>
             </article>
