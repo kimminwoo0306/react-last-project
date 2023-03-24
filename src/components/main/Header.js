@@ -50,7 +50,8 @@ function Header(props){
                                 <li><a href="pages/full-width.html">셰프</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">커뮤니티</a></li>
+                        <li><NavLink to={"/jeju/food_find"}>맛집 검색</NavLink></li>
+                        <li><NavLink to={"/jeju/news_find"}>뉴스 검색</NavLink></li>
                     </ul>
                 </nav>
             </header>
