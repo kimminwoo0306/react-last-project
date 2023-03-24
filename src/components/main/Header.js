@@ -37,6 +37,12 @@ function Header(props){
                                 <li><NavLink to={"/jeju/event_list"}>행사&이벤트</NavLink></li>
                             </ul>
                         </li>
+                        <li><a className="drop" href="#">렌트카/호텔</a>
+                            <ul>
+                                <li><a href="/jeju/car_list">렌트카</a></li>
+                                <li><a href="/jeju/hotel_list">호텔</a></li>
+                            </ul>
+                        </li>
                         <li><a className="drop" href="#">레시피</a>
                             <ul>
                                 <li><a href="/jeju/recipe_list">레시피</a></li>

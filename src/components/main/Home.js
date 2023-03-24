@@ -63,6 +63,7 @@ function Home (){
             </div>
             <div className="bgded overlay light" style={{"background-image":"url('images/demo/backgrounds/01.png')"}}>
                 <section id="services" className="hoc container clear">
+                    <h2 className="text-center">탐나라제주의 맛집 Top 6!</h2>
                     <ul className="nospace group elements elements-three">
                         {html}
                     </ul>

@@ -50,7 +50,7 @@ function Footer() {
         <div className="bgded overlay row4" style={{"background-image":"url('images/demo/backgrounds/01.png')"}}>
             <footer id="footer" className="hoc clear">
                 <div className="one_third first">
-                    <h6 className="heading">오늘의 뉴스</h6>
+                    <h6 className="heading">오늘의 제주도 뉴스</h6>
                     <ul className="nospace linklist">
                         {html}
                     </ul>
